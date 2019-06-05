@@ -1,3 +1,3 @@
 FROM centos
-MAINTAINER Linuxtechi Team <info@linuxtechi.com>
+MAINTAINER Mayilvahanan <t.mayilvahanan@abc.com>
 RUN yum -y install http php
