@@ -2,9 +2,9 @@ FROM  container-registry.oracle.com/os/oraclelinux:10
 RUN dnf -y install httpd
 USER root
 
-RUN useradd -u 1001 -g 0 -s /bin/bash -d /var/www apache && \
-    chown -R 1001:0 /var/www /var/run/httpd /var/log/httpd /etc/httpd && \
-    chmod -R g+rw /var/www /var/run/httpd /var/log/httpd /etc/httpd
+RUN useradd -u 1001 -g 0 -s /bin/bash -d /var/www apache
+RUN chown -R 1001:0 /var/www /var/run/httpd /var/log/httpd /etc/httpd
+RUN chmod -R g+rw /var/www /var/run/httpd /var/log/httpd /etc/httpd
     
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 
