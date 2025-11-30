@@ -10,7 +10,7 @@ RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 
 # Copy or create content with correct permissions
 RUN echo '<html><body><h1>Apache on OpenShift</h1></body></html>' > /var/www/html/index.html && \
-    chown apache1:apache1 /var/www/html/index.html
+    chown apache1:root /var/www/html/index.html
 
 # Expose port 8080 (non-privileged port)
 EXPOSE 8080
