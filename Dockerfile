@@ -1,8 +1,11 @@
 FROM  container-registry.oracle.com/os/oraclelinux:10
 RUN dnf -y install httpd
 USER root
-RUN chgrp -R 0 /var/cache && chmod -R g=u /var/cache
 
+RUN useradd -u 1001 -g 0 -s /bin/bash -d /var/www apache && \
+    chown -R 1001:0 /var/www /var/run/httpd /var/log/httpd /etc/httpd && \
+    chmod -R g+rw /var/www /var/run/httpd /var/log/httpd /etc/httpd
+    
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 
 # Copy or create content with correct permissions
