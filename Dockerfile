@@ -2,7 +2,7 @@ FROM  container-registry.oracle.com/os/oraclelinux:10
 RUN dnf -y install httpd
 USER root
 
-RUN useradd -u 1001 -g 0 -s /bin/bash -d /var/www apache
+RUN useradd -u 1001 -g 0 -s /bin/bash -d /var/www apache1
 RUN chown -R 1001:0 /var/www /var/run/httpd /var/log/httpd /etc/httpd
 RUN chmod -R g+rw /var/www /var/run/httpd /var/log/httpd /etc/httpd
     
@@ -10,7 +10,7 @@ RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 
 # Copy or create content with correct permissions
 RUN echo '<html><body><h1>Apache on OpenShift</h1></body></html>' > /var/www/html/index.html && \
-    chown apache:apache /var/www/html/index.html
+    chown apache1:apache1 /var/www/html/index.html
 
 # Expose port 8080 (non-privileged port)
 EXPOSE 8080
