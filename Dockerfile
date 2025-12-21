@@ -14,7 +14,7 @@ RUN echo '<html><body><h1>Apache on OpenShift</h1></body></html>' > /var/www/htm
     chown 1001:0 /var/www/html/index.html
 
 # Expose port 8080 (non-privileged port)
-EXPOSE 8080
+# EXPOSE 8080
 
 # Switch to non-root user
 USER 1001
